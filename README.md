@@ -1,97 +1,128 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Universal Billing & POS Mobile Application
 
-# Getting Started
+A production-quality, commercial-grade **Universal Point of Sale (POS) and Billing Mobile Application** built with **React Native 0.88.1**, **TypeScript**, and **React Native SVG**.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+Inspired by **RedFace Pay**'s dashboard UX and styled with a signature **Red Invoice Layout (`#ED172C`)**, this application dynamically adapts to multiple business models, including Supermarkets, Restaurants, Pharmacies, Fashion Boutiques, Electronics, Wholesale Distributors, and Service Salons.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🌟 Key Highlights
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Multi-Industry Engine**: Seamlessly switch between Supermarket, Restaurant, Pharmacy, Fashion, Electronics, and Wholesale modes on the fly.
+- **RedFace Pay Aesthetic**: Modern dashboard with glassmorphism, quick billing actions, interactive SVG sales trends, payment breakdown charts, and industry-specific widgets.
+- **Universal POS Billing Terminal**: Category tabs, product cards, stock indicators, held-bills tray, customer selection, and live cart calculation with multi-tier GST (CGST/SGST/IGST).
+- **Red Invoice Reference Template**: Branded invoice layout matching modern fiscal receipt specifications with 5 interchangeable themes (Red Modern, Classic Black, Minimal Clean, Thermal 80mm, and GST Tax Layout).
+- **Direct Sharing & Printing**: One-tap receipt printing simulation, PDF export, WhatsApp sharing, and dynamic UPI QR codes.
+- **Dark & Light Mode**: Complete adaptive theme engine with smooth contrast handling.
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## 🏢 Supported Business Models
+
+| Industry | Tailored Modules & Workflows |
+|---|---|
+| **Supermarkets & Groceries** | Barcode scanning, rapid SKU billing, category filtering, stock alerts, multi-item cart. |
+| **Restaurants & Cafés** | Visual dining table floor plan (Vacant / Occupied / Billed), real-time Kitchen Display System (KDS). |
+| **Pharmacies & Healthcare** | Batch number tracking, expiry date monitors, Schedule H prescription compliance flags. |
+| **Fashion & Apparel** | Size, color, and fit variant selectors, seasonal discount rules. |
+| **Electronics & Hardware** | Serial number tracking, warranty period management, high-value item verification. |
+| **Wholesale & Distribution** | Tiered bulk pricing, minimum order quantities (MOQ), GST tax invoicing, credit ledger. |
+| **Services & Salons** | Time-slot appointment scheduling, technician assignment, direct appointment checkout. |
+
+---
+
+## 📱 Navigation & App Architecture
+
+```
+src/
+├── components/
+│   ├── charts/              # SVG Sales overview & payment split charts
+│   ├── common/              # Buttons, Cards, Inputs, Badges, Headers, SVG Icons
+│   └── navigation/          # Custom bottom navigation bar, Business switcher modal
+├── database/                # Mock datasets for multi-industry businesses & catalogs
+├── navigation/              # Root navigator with tab and stack routing
+├── screens/
+│   ├── Barcode/             # Laser barcode scanner viewfinder & rapid SKU input
+│   ├── Billing/             # POS catalog, cart drawer, checkout modal
+│   ├── Customers/           # Customer management & CRM (Add/Edit)
+│   ├── Dashboard/           # RedFace Pay metrics, quick operations, industry widgets
+│   ├── Expenses/            # Expense tracking & operational cost logging
+│   ├── Invoices/            # Invoice list & branded Red invoice preview
+│   ├── Onboarding/          # Multi-step business setup wizard
+│   ├── Pharmacy/            # Batch expiration & Schedule H tracking
+│   ├── Products/            # Product catalog inventory manager (Add/Edit)
+│   ├── Purchases/           # Purchase order tracker & vendor supplier records
+│   ├── Reports/             # Sales summary, P&L statement, GSTR-1/3B tax reports
+│   ├── Restaurant/          # Dining floor plan tables & Kitchen Display System (KDS)
+│   ├── Services/            # Appointment schedule & salon POS billing
+│   ├── Settings/            # App configurations, printer setup & notifications
+│   └── Staff/               # Staff management & branch directory
+├── store/                   # AppContext (central reactive multi-business state store)
+├── theme/                   # Color tokens, typography, spacing, shadows, ThemeProvider
+└── types/                   # TypeScript interfaces & domain models
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🚀 Getting Started
 
-### Android
+### Prerequisites
 
-```sh
-# Using npm
-npm run android
+- **Node.js** (v18+)
+- **Yarn** or **npm**
+- **Xcode** 15+ (for iOS build & physical device testing)
+- **CocoaPods**
 
-# OR using Yarn
-yarn android
-```
+### Installation
 
-### iOS
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/NithinVellodan/Universal-billing-App.git
+   cd Universal-billing-App
+   ```
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+3. Install iOS CocoaPods:
+   ```bash
+   cd ios && bundle exec pod install && cd ..
+   ```
 
-```sh
-bundle install
-```
+### Running Locally
 
-Then, and every time you update your native dependencies, run:
+- **Start Metro Bundler**:
+  ```bash
+  npm start
+  ```
 
-```sh
-bundle exec pod install
-```
+- **Run on iOS Simulator**:
+  ```bash
+  npm run ios
+  ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+- **Run on Connected Physical iOS Device**:
+  ```bash
+  npx react-native run-ios --device "Your iPhone Name"
+  ```
 
-```sh
-# Using npm
-npm run ios
+---
 
-# OR using Yarn
-yarn ios
-```
+## 🎨 Design System
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+- **Primary Red**: `#ED172C`
+- **Dark Red Accent**: `#C90019`
+- **Light Cyan Tint**: `#E5F7FF`
+- **Charcoal Dark**: `#25282B`
+- **Orange Warning**: `#FF982E`
+- **Emerald Success**: `#00BA88`
+- **Soft Background**: `#F7F8FA`
+- **Dark Mode Background**: `#121212`
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+---
 
-## Step 3: Modify your app
+## 📄 License
 
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is licensed under the MIT License.
